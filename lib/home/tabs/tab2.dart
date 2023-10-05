@@ -14,7 +14,7 @@ class Tab2 extends StatelessWidget {
                 borderRadius: const BorderRadius.all(Radius.circular(10)),
                 color: const Color(0xff717BBC).withOpacity(0.1)),
             height: 85,
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Row(
               children: [
                 Row(
@@ -24,16 +24,16 @@ class Tab2 extends StatelessWidget {
                         Row(
                           children: [
                             Image.asset("assets/hearticon.png"),
-                            Text("Heart Rate",)
+                            const Text("Heart Rate",)
                           ],
                         ),
-                        Text("81 BPM", style: TextStyle(
+                        const Text("81 BPM", style: TextStyle(
                             fontWeight: FontWeight.w600, fontSize: 18),)
                       ],
                     ),
                   ],
                 ),
-                Spacer(),
+                const Spacer(),
                 Row(
                   children: [
                     Column(
@@ -41,16 +41,16 @@ class Tab2 extends StatelessWidget {
                         Row(
                           children: [
                             Image.asset("assets/list.png"),
-                            Text("TO-do",)
+                            const Text("TO-do",)
                           ],
                         ),
-                        Text("32.5 %", style: TextStyle(
+                        const Text("32.5 %", style: TextStyle(
                             fontWeight: FontWeight.w600, fontSize: 18),)
                       ],
                     ),
                   ],
                 ),
-                Spacer(),
+                const Spacer(),
                 Row(
                   children: [
                     Column(
@@ -58,10 +58,10 @@ class Tab2 extends StatelessWidget {
                         Row(
                           children: [
                             Image.asset("assets/calo.png"),
-                            Text("Calo",)
+                            const Text("Calo",)
                           ],
                         ),
-                        Text("1000 Cal", style: TextStyle(
+                        const Text("1000 Cal", style: TextStyle(
                             fontWeight: FontWeight.w600, fontSize: 18),)
                       ],
                     ),
@@ -71,21 +71,68 @@ class Tab2 extends StatelessWidget {
             ),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.all(20),
+        const Padding(
+          padding: EdgeInsets.all(20),
           child: Row(
             children: [
               Text("Workout Programs",style: TextStyle(fontWeight: FontWeight.w600,fontSize: 18),)
             ],
           ),
         ),
-        TabBar(
-          tabs: [
-            Tab(icon: Icon(Icons.directions_car)),
-            Tab(icon: Icon(Icons.directions_transit)),
-            Tab(icon: Icon(Icons.directions_bike)),
-          ],
-        ),
+        SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Container(
+                  height: 175,
+                  padding: const EdgeInsets.all(26),
+                  decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      color: Color(0xFFE4E7EF)),
+                  child:  Row(
+                    children: [
+                      const Spacer(),
+                       Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 8.0),
+                              child: Container(
+                                decoration: const BoxDecoration(
+                                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                                    color: Color(0xFFFFFFFF)),
+                                padding: const EdgeInsets.only(right: 12,left: 12,top: 8,bottom: 8),
+                                child: const Text("7 Days",),
+                              ),
+                            ),
+                            const Text("Morning Yoga",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600,),),
+                            const Text("Improve mental focus."),
+                            const Row(
+                              children: [
+                                Icon(Icons.access_time),
+                                Text("30 mins"),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                      const Spacer(),
+                      Column(
+                        children: [
+                          Image.asset("assets/removal 2.png")
+                        ],
+                      ),
+                      const Spacer(),
+                    ],
+                  ),
+                ),
+              ),
+
+            ],
+          ),
+        )
       ],
     );
   }
