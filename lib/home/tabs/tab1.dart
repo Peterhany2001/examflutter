@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class Tab1 extends StatelessWidget {
+  static String routName = "tab1";
   const Tab1({super.key});
 
   @override
