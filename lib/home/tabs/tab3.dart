@@ -12,22 +12,27 @@ class Tab3 extends StatefulWidget {
 class _Tab3State extends State<Tab3> {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        elevation: 0.0,
+        backgroundColor: Colors.transparent,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Image.asset("assets/Vector.png"),
+            const SizedBox(
+              width: 5,
+            ),
+            Image.asset("assets/AliceCare.png")
+          ],
+        ),
+      ),
+      body: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Image.asset("assets/Vector.png"),
-              const SizedBox(
-                width: 5,
-              ),
-              Image.asset("assets/AliceCare.png")
-            ],
-          ),
           Padding(
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.only(left: 20,right: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children:[
@@ -121,7 +126,7 @@ class _Tab3State extends State<Tab3> {
               child: Row(
                 children: [
                   Image.asset("assets/Frame 3466530.png"),
-                  SizedBox(width: 12,),
+                  const SizedBox(width: 12,),
                   Image.asset("assets/Frame 3466530.png"),
                 ],
               ),
@@ -154,6 +159,7 @@ class _Tab3State extends State<Tab3> {
                   Padding(
                     padding: const EdgeInsets.only(top: 10),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(bottom: 8.0),
@@ -176,12 +182,12 @@ class _Tab3State extends State<Tab3> {
                         Padding(
                           padding: const EdgeInsets.only(top: 24.0),
                           child: Container(
-                            padding: EdgeInsets.only(top: 8,bottom: 8,left: 14,right: 14),
-                            decoration: BoxDecoration(
+                            padding: const EdgeInsets.only(top: 8,bottom: 8,left: 14,right: 14),
+                            decoration: const BoxDecoration(
                             color: Color(0xff7F56D9),
                               borderRadius: BorderRadius.all(Radius.circular(20))
                             ),
-                            child: Text("View detail",style: TextStyle(color: Colors.white)),
+                            child: const Text("View detail",style: TextStyle(color: Colors.white)),
                           ),
                         )
                       ],
@@ -215,6 +221,16 @@ class _Tab3State extends State<Tab3> {
           ),
         ],
       ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const [
+            BottomNavigationBarItem(
+                icon: Icon(Icons.calendar_today,color: Color(0xff6941C6)), label: "*"),
+            BottomNavigationBarItem(
+                icon:Icon(Icons.grid_view,color: Color(0xff667085)), label:""),
+            BottomNavigationBarItem(
+                icon:Icon(Icons.chat_bubble_outline,color: Color(0xff667085)), label: ""),
+          ],
+        )
     );
   }
 }
