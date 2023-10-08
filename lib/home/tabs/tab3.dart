@@ -10,6 +10,12 @@ class Tab3 extends StatefulWidget {
 }
 
 class _Tab3State extends State<Tab3> {
+  int _selectedIndex=0;
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -161,31 +167,19 @@ class _Tab3State extends State<Tab3> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 8.0),
-                          child: Container(
-                            decoration: const BoxDecoration(
-                                borderRadius: BorderRadius.all(Radius.circular(15)),
-                                color: Color(0xFFFFFFFF)),
-                            padding: const EdgeInsets.only(right: 12,left: 12,top: 8,bottom: 8),
-                            child: const Text("7 Days",),
-                          ),
-                        ),
-                        const Text("Morning Yoga",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600,)),
-                        const Text("Improve mental focus."),
-                        const Row(
-                          children: [
-                            Icon(Icons.access_time),
-                            Text("30 mins"),
-                          ],
-                        ),
+                        SizedBox(height: 20,),
+                        Text("Connect with doctors &",style: TextStyle(fontWeight: FontWeight.w600,fontSize: 14),),
+                        Text("get suggestions",style: TextStyle(fontWeight: FontWeight.w600,fontSize: 14),),
+                        SizedBox(height: 15,),
+                        Text("Connect now and get"),
+                        Text("expert insights"),
                         Padding(
                           padding: const EdgeInsets.only(top: 24.0),
                           child: Container(
                             padding: const EdgeInsets.only(top: 8,bottom: 8,left: 14,right: 14),
                             decoration: const BoxDecoration(
                             color: Color(0xff7F56D9),
-                              borderRadius: BorderRadius.all(Radius.circular(20))
+                              borderRadius: BorderRadius.all(Radius.circular(10))
                             ),
                             child: const Text("View detail",style: TextStyle(color: Colors.white)),
                           ),
@@ -203,7 +197,7 @@ class _Tab3State extends State<Tab3> {
             child: Row(
               children: [
                 Text(
-                  "Hot topics",
+                  "Cycle Phases and Period",
                   style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
                 ),
                 Spacer(),
@@ -222,14 +216,18 @@ class _Tab3State extends State<Tab3> {
         ],
       ),
         bottomNavigationBar: BottomNavigationBar(
+          selectedIconTheme: const IconThemeData(color: Color(0xff6941C6), size: 25),
+          selectedItemColor: const Color(0xff6941C6),
           items: const [
             BottomNavigationBarItem(
-                icon: Icon(Icons.calendar_today,color: Color(0xff6941C6)), label: "*"),
+                icon: Icon(Icons.calendar_today,), label: "Today"),
             BottomNavigationBarItem(
-                icon:Icon(Icons.grid_view,color: Color(0xff667085)), label:""),
+                icon:Icon(Icons.grid_view,), label:"Insights"),
             BottomNavigationBarItem(
-                icon:Icon(Icons.chat_bubble_outline,color: Color(0xff667085)), label: ""),
+                icon:Icon(Icons.chat_bubble_outline,), label: "Chat"),
           ],
+          currentIndex: _selectedIndex, //New
+          onTap: _onItemTapped,
         )
     );
   }
