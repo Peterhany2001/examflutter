@@ -26,7 +26,7 @@ class _MyAppState extends State<MyApp> {
         Tab2.routName: (_) => Tab2(),
         Tab3.routName: (_) => Tab3(),
       },
-      initialRoute: Tab2.routName,
+      initialRoute: Tab1.routName,
       );
   }
 }

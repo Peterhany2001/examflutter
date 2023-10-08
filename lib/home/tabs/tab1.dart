@@ -1,11 +1,23 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-class Tab1 extends StatelessWidget {
+class Tab1 extends StatefulWidget {
+
   static String routName = "tab1";
 
   const Tab1({super.key});
 
+  @override
+  State<Tab1> createState() => _Tab1State();
+}
+
+class _Tab1State extends State<Tab1> {
+  int _selectedIndex=0;
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -409,16 +421,22 @@ class Tab1 extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        unselectedItemColor: Color(0xff667085),
+        selectedIconTheme: const IconThemeData(color: Color(0xff027A48), size: 25),
+        selectedItemColor: const Color(0xff027A48),
         items: const [
             BottomNavigationBarItem(
-                icon: Icon(Icons.home,color: Colors.blue), label: "0"),
+                icon: Icon(Icons.home,), label: "*"),
             BottomNavigationBarItem(
-                icon:Icon(Icons.language,color: Colors.lightGreen), label: "0"),
+                icon:Icon(Icons.grid_view,), label: "*"),
             BottomNavigationBarItem(
-                icon:Icon(Icons.access_time_filled_sharp,color: Colors.lightGreen), label: "0"),
+                icon:Icon(Icons.calendar_today,), label: "*"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.account_box_sharp,color: Colors.lightGreen), label: "0"),
-        ],),
+                icon: Icon(Icons.person_2_outlined,), label: "*"),
+        ],
+        currentIndex: _selectedIndex, //New
+        onTap: _onItemTapped,
+      ),
     );
   }
 }
