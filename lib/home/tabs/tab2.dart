@@ -9,6 +9,12 @@ class Tab2 extends StatefulWidget {
 }
 
 class _Tab2State extends State<Tab2> {
+  int _selectedIndex=0;
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -331,16 +337,21 @@ class _Tab2State extends State<Tab2> {
         ),
       ),
         bottomNavigationBar: BottomNavigationBar(
+          unselectedItemColor: Color(0xff667085),
+          selectedIconTheme: const IconThemeData(color: Color(0xff6941C6), size: 25),
+          selectedItemColor: const Color(0xff6941C6),
           items: const [
             BottomNavigationBarItem(
-                icon: Icon(Icons.home,color: Color(0xff363F72)), label: "0"),
+                icon: Icon(Icons.home,), label: "*"),
             BottomNavigationBarItem(
-                icon:Icon(Icons.navigation_outlined,color: Color(0xff667085)), label: "0"),
+                icon:Icon(Icons.navigation_outlined,), label:"*"),
             BottomNavigationBarItem(
-                icon:Icon(Icons.bar_chart_outlined,color: Color(0xff667085)), label: "0"),
+                icon:Icon(Icons.bar_chart_outlined,), label: "*"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.person,color: Color(0xff667085)), label: "0"),
+                icon: Icon(Icons.person,), label: "*")
           ],
+          currentIndex: _selectedIndex, //New
+          onTap: _onItemTapped,
         )
     );
   }
